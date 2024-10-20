@@ -5,11 +5,15 @@ echo have you copied all files to this directory? "%cd%"
 echo ---------------------------------------------------
 pause
 cls
+echo what did you do for this update?
+echo ---------------------------------------------------
+set /P updatereason=
+cls
 echo okay then, hold onto your hats!
 timeout 2 /NOBREAK > nul
 cls
 git add .
-git commit -m "Updated Files."
+git commit -m "%updatereason%"
 git push -u origin main
 echo --------------------------------------------------------------------------------------
 echo finished.
