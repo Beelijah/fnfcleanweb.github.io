@@ -4,9 +4,9 @@
   "playData": {
     "album": "volume1",
     "stage": "spookyMansion",
-    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "monster" },
+    "characters": { "player": "bf", "girlfriend": "gf", "opponent": "bf" },
     "songVariations": [],
-    "difficulties": ["easy", "normal", "hard"],
+    "difficulties": ["yep"],
     "noteStyle": "funkin"
   },
   "songName": "Monster",
