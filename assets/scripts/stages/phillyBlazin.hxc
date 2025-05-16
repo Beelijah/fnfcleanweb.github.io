@@ -24,7 +24,6 @@ class PhillyBlazinStageNew extends Stage
 		super('phillyBlazin');
 	}
 
-	var rainShader:RuntimeRainShader = new RuntimeRainShader();
 	var scrollingSky:FlxTiledSprite;
 	// var rainShaderFilter:ShaderFilter;
 
@@ -33,12 +32,6 @@ class PhillyBlazinStageNew extends Stage
 		cameraInitialized = false;
 		cameraDarkened = false;
 		lightningActive = true;
-
-		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
-		rainShader.intensity = 0.5;
-
-		rainShaderFilter = new ShaderFilter(rainShader);
-		FlxG.camera.setFilters([rainShaderFilter]);
 	}
 
 	override function onGameOver(event:ScriptEvent):Void {
@@ -50,7 +43,6 @@ class PhillyBlazinStageNew extends Stage
 	override function onSongRetry(event:ScriptEvent):Void {
 		super.onSongRetry(event);
 		// Make it so the rain shader doesn't show over the game over screen
-		FlxG.camera.setFilters([rainShaderFilter]);
 		lightningActive = true;
 	}
 
@@ -90,15 +82,9 @@ class PhillyBlazinStageNew extends Stage
 	var lightningTimer:Float = 3.0;
 	var lightningActive:Bool = true;
 
-	var rainTimeScale:Float = 1.0;
-
 	override function onUpdate(event:ScriptEvent)
 	{
 		super.onUpdate(event);
-
-		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
-		rainShader.update(event.elapsed * rainTimeScale);
-		rainTimeScale = MathUtil.coolLerp(rainTimeScale, 0.02, 0.05);
 
 		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 35;
 
@@ -128,7 +114,6 @@ class PhillyBlazinStageNew extends Stage
 
 	public function onNoteHit(event:HitNoteScriptEvent) {
 		super.onNoteHit(event);
-		rainTimeScale += 0.7;
 	}
 
 

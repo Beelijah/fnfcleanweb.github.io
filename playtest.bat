@@ -1,6 +1,6 @@
 @echo off
 cls
 echo Starting server...
-explorer "http://localhost:3000"
-serve
+explorer "http://localhost:8080"
+http-server
 exit
