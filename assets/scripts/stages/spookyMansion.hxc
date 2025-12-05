@@ -25,14 +25,6 @@ class SpookyMansionStage extends Stage
 
 		lightningStrikeBeat = beat;
 		lightningStrikeOffset = FlxG.random.int(8, 24);
-
-		if (getBoyfriend() != null) {
-			getBoyfriend().playAnimation('scared', true, true);
-		}
-
-		if (getGirlfriend() != null) {
-			getGirlfriend().playAnimation('scared', true, true);
-		}
 	}
 
 	/**
